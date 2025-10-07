@@ -25,11 +25,11 @@ def command(commands: Union[str, List[str]]):
 async def on_vc_start(_, msg):
     chat_id = msg.chat.id
     try:
-        await msg.reply("<b>😍 Video Chat Started 🥳</b>")
+        await msg.reply("<b>😍 ᴠɪᴅᴇᴏ ᴄʜᴀᴛ sᴛᴀʀᴛᴇᴅ 🥳</b>")
         # Remove st_stream call from here - it's causing the error
         await set_loop(chat_id, 0)
     except Exception as e:
-        await msg.reply(f"<b>Error:</b> <code>{e}</code>")
+        await msg.reply(f"<b>ᴇʀʀᴏʀ:</b> <code>{e}</code>")
 
 
 async def get_group_call(client: Client, message: Message, err_msg: str = "") -> Optional[InputGroupCall]:
@@ -102,6 +102,7 @@ async def start_group_call(c: Client, m: Message):
                     random_id=assistant.rnd_id() // 9000000000,
                 )
             )
+
             await app.promote_chat_member(
                 chat_id,
                 assid,
@@ -152,7 +153,6 @@ async def stop_group_call(c: Client, m: Message):
     except Exception as e:
         if "GROUPCALL_FORBIDDEN" in str(e):
             try:
-                # Promote assistant
                 await app.promote_chat_member(
                     chat_id,
                     assid,
@@ -174,7 +174,7 @@ async def stop_group_call(c: Client, m: Message):
                     return
                     
                 await assistant.invoke(DiscardGroupCall(call=group_call))
-            
+                
                 await app.promote_chat_member(
                     chat_id,
                     assid,
