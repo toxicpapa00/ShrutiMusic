@@ -4,6 +4,31 @@
   <img src="ShrutiMusic/assets/equalizer.svg" width="100%" height="500">
 </p>
 
+---
+
+## 🚀 **MAJOR UPDATE - Now Running on API!**
+
+> **⚡ Lightning Fast:** New API-based system delivers **1-3 second response times** for instant music streaming!
+
+### 🔑 Get Your API Key (Required for All Users)
+
+**Quick Setup:**
+1. 🌐 **Visit:** [QuickEarn API Panel - Click Here to Sign Up](https://panel.thequickearn.xyz/signup?ref=NGBM6HYNQKU)
+2. 📝 **Register** your account (takes 1 minute)
+3. 🔑 **Copy** your API Key from the dashboard
+4. ⚙️ **Add** `API_KEY=your_api_key` to your environment variables
+5. ✅ **Done!** Your bot is now 10x faster
+
+### 📋 Important Notes:
+
+- **New Users:** API Key is mandatory - get it from [this link](https://panel.thequickearn.xyz/signup?ref=NGBM6HYNQKU)
+- **Existing Users (Fork):** Update `ShrutiMusic/platforms/Youtube.py` file with latest code + add API_KEY variable
+- **Cookie Method:** No longer needed - API is faster and more reliable!
+
+**Benefits:** ✨ No cookie management | ⚡ 10x faster | 🔒 More stable | 🎯 Better audio quality
+
+---
+
 <div align="center">
   <h1>🎵 Shruti Music Bot 🎵</h1>
   
@@ -257,7 +282,7 @@ nano .env
 - `LOG_GROUP_ID` (Log group/channel ID starting with -100)
 - `SUPPORT_GROUP` (Full Link of your Support Group)
 - `SUPPORT_CHANNEL` (Full Link Of your Support channel)
-- `API_KEY` (Get from https://panel.thequickearn.xyz/signup?ref=NGBM6HYNQKU) **[NEW & REQUIRED]**
+- `API_KEY` **[NEW & REQUIRED]** - Get from: `https://panel.thequickearn.xyz/signup?ref=NGBM6HYNQKU`
 - `START_IMG_URL` (Image URL for /start message thumbnail)
 
 **Note:** `COOKIE_URL` is no longer needed with the new API system.
@@ -316,7 +341,7 @@ Example : `screen -r 108108`
    - MUSIC_BOT_NAME
    - STRING_SESSION
    - SUDO_USERS (your User ID)
-   - **API_KEY** (Get from [QuickEarn Panel](https://panel.thequickearn.xyz/signup?ref=NGBM6HYNQKU))
+   - **API_KEY** - Get from: `https://panel.thequickearn.xyz/signup?ref=NGBM6HYNQKU`
 
 3. **Click "Deploy App"**
 
