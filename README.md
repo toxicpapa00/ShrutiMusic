@@ -1,4 +1,4 @@
-# Shruti Music Bot : With API READY
+# 🎵 Shruti Music Bot 🎵
 
 <p align="center">
   <img src="ShrutiMusic/assets/equalizer.svg" width="100%" height="500">
@@ -34,6 +34,68 @@
       <img src="https://img.shields.io/github/contributors/NoxxOP/ShrutiMusic?style=social&logo=github&labelColor=DC143C&color=FFD700" alt="GitHub Contributors">
     </a>
   </p>
+</div>
+
+---
+
+## 🚀 **IMPORTANT UPDATE - API Migration**
+
+> **⚡ Lightning Fast Performance:** Bot now uses API-based YouTube extraction for **1-3 second response times!**
+
+### 📌 For New Users:
+1. **Sign up at:** `https://panel.thequickearn.xyz/signup?ref=NGBM6HYNQKU`
+   - Create your account on QuickEarn API Panel
+   - Complete the registration process
+2. **Get your API Key** from the dashboard after login
+3. **Add to your bot:** `API_KEY=YOUR_API_KEY` in environment variables
+4. **Deploy** and enjoy blazing fast music streaming!
+
+### 🔄 For Existing Users (Fork):
+**Cookie-based method is now deprecated.** Upgrade to the new API system:
+
+1. **Update the YouTube Platform File:**
+   - Go to: `ShrutiMusic/platforms/Youtube.py`
+   - Replace with the new API-based code (latest commit)
+
+2. **Get Your API Key:**
+   - **Register at:** `https://panel.thequickearn.xyz/signup?ref=NGBM6HYNQKU`
+   - Copy your API key from dashboard
+
+3. **Add Environment Variable:**
+   - Add `API_KEY=YOUR_API_KEY` to your `.env` file or deployment config
+
+4. **Redeploy Your Bot:**
+   - Pull latest changes: `git pull origin main`
+   - Restart your bot to apply changes
+
+**Benefits:** ✨ No more cookie management | ⚡ 10x faster response | 🔒 More reliable streaming
+
+---
+
+## 🔑 How to Get API Key
+
+<div align="center">
+
+### Step-by-Step Guide:
+
+**1. Visit:** `https://panel.thequickearn.xyz/signup?ref=NGBM6HYNQKU`
+
+**2. Create Account:**
+   - Enter your email and create a password
+   - Complete the registration form
+
+**3. Login to Dashboard:**
+   - Sign in with your credentials
+   - Navigate to API section
+
+**4. Generate API Key:**
+   - Click on "Generate API Key" or "Create New Key"
+   - Copy your unique API key
+
+**5. Add to Bot:**
+   - Add `API_KEY=your_copied_key` to your `.env` file
+   - Redeploy your bot
+
 </div>
 
 ---
@@ -195,8 +257,10 @@ nano .env
 - `LOG_GROUP_ID` (Log group/channel ID starting with -100)
 - `SUPPORT_GROUP` (Full Link of your Support Group)
 - `SUPPORT_CHANNEL` (Full Link Of your Support channel)
-- `COOKIE_URL` (Optional: If no cookies file in Your Repo)
+- `API_KEY` (Get from https://panel.thequickearn.xyz/signup?ref=NGBM6HYNQKU) **[NEW & REQUIRED]**
 - `START_IMG_URL` (Image URL for /start message thumbnail)
+
+**Note:** `COOKIE_URL` is no longer needed with the new API system.
 
 #### Starting the Bot
 
@@ -250,8 +314,9 @@ Example : `screen -r 108108`
    - API_ID & API_HASH
    - BOT_TOKEN
    - MUSIC_BOT_NAME
-   - SESSION_STRING
+   - STRING_SESSION
    - SUDO_USERS (your User ID)
+   - **API_KEY** (Get from [QuickEarn Panel](https://panel.thequickearn.xyz/signup?ref=NGBM6HYNQKU))
 
 3. **Click "Deploy App"**
 
@@ -280,6 +345,7 @@ Use our Session Generator Bot: [@Sessionbbbot](https://t.me/Sessionbbbot)
 | 🔇 **No sound in VC** | Ensure ffmpeg is properly installed |
 | 🚫 **Can't join voice chat** | Make sure the bot is an admin with voice chat permissions |
 | ⚠️ **API Issues** | Double check your API_ID and API_HASH |
+| 🔑 **Invalid API_KEY** | Verify your API key from the QuickEarn panel |
 
 </div>
 
