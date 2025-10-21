@@ -19,10 +19,6 @@
 # Contact for permissions:
 # Email: badboy809075@gmail.com
 
-import uvloop
-
-uvloop.install()
-
 import pyrogram
 from pyrogram import Client
 from pyrogram.enums import ChatMemberStatus, ParseMode
