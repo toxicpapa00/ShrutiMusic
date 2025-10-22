@@ -17,16 +17,17 @@ import glob
 import random
 import logging
 
+
 def cookie_txt_file():
-    folder_path = f"{os.getcwd()}/cookies"
-    filename = f"{os.getcwd()}/cookies/logs.csv"
-    txt_files = glob.glob(os.path.join(folder_path, '*.txt'))
-    if not txt_files:
-        raise FileNotFoundError("No .txt files found in the specified folder.")
-    cookie_txt_file = random.choice(txt_files)
-    with open(filename, 'a') as file:
-        file.write(f'Choosen File : {cookie_txt_file}\n')
-    return f"""cookies/{str(cookie_txt_file).split("/")[-1]}"""
+    cookie_dir = "ShrutiMusic/cookies"
+    if not os.path.exists(cookie_dir):
+        return None
+    cookies_files = [f for f in os.listdir(cookie_dir) if f.endswith(".txt")]
+    if not cookies_files:
+        return None
+    cookie_file = os.path.join(cookie_dir, random.choice(cookies_files))
+    return cookie_file
+
 
 async def check_file_size(link):
     async def get_format_info(link):
