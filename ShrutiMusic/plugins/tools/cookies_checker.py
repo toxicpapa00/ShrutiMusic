@@ -82,10 +82,10 @@ def simulate_yt_dlp(cookie_path):
 async def check_cookie_file(_, message: Message):
     reply = message.reply_to_message
     if not reply:
-        await message.reply_text("<b>Reply to a message that contains the cookie file.</b>", parse_mode="html")
+        await message.reply_text("<b>Reply to a message that contains the cookie file.</b>")
         return
 
-    m = await message.reply_text("<b>🔎 Checking cookies...</b>", parse_mode="html")
+    m = await message.reply_text("<b>🔎 Checking cookies...</b>")
 
     file_path = None
     try:
@@ -99,7 +99,7 @@ async def check_cookie_file(_, message: Message):
             with open(file_path, "w", encoding="utf-8") as f:
                 f.write(reply.text)
         else:
-            await m.edit("<b>No cookie data found in reply message.</b>", parse_mode="html")
+            await m.edit("<b>No cookie data found in reply message.</b>")
             return
 
         # Check login
@@ -125,10 +125,10 @@ async def check_cookie_file(_, message: Message):
             "<i>Note: This test uses yt-dlp simulate mode; no actual file downloaded.</i>"
         )
 
-        await m.edit_text(text, parse_mode="html", disable_web_page_preview=True)
+        await m.edit_text(text, disable_web_page_preview=True)
 
     except Exception as e:
-        await m.edit_text(f"<b>Error:</b> <code>{e}</code>", parse_mode="html")
+        await m.edit_text(f"<b>Error:</b> <code>{e}</code>")
     finally:
         if file_path and os.path.exists(file_path):
             os.remove(file_path)
