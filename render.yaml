@@ -7,7 +7,7 @@ services:
     buildCommand: |
       apt-get update && apt-get install -y ffmpeg
       pip install -r requirements.txt
-    startCommand: python3 main.py
+    startCommand: python3 -m ShrutiMusic
     autoDeploy: true
 
     envVars:
