@@ -20,66 +20,6 @@
 ---
 
 <div align="center">
-
-### 🎁 **ɢᴇᴛ ʏᴏᴜʀ ᴀᴘɪ ᴋᴇʏ** (ʀᴇǫᴜɪʀᴇᴅ ғᴏʀ ᴀʟʟ ᴜsᴇʀs) 🎁
-
-</div>
-
-<table align="center">
-<tr>
-<td align="center" width="50%">
-
-### 🆕 **ɴᴇᴡ ᴜsᴇʀs**
-
-1. 🌐 **[ᴄʟɪᴄᴋ ʜᴇʀᴇ ᴛᴏ sɪɢɴ ᴜᴘ](https://panel.thequickearn.xyz/signup?ref=NGBM6HYNQKU)**
-   - 🎁 **ᴇxᴄʟᴜsɪᴠᴇ ᴡᴇʟᴄᴏᴍᴇ ʙᴏɴᴜs**
-   - 💎 **ʀᴀɴᴅᴏᴍ ʀᴇᴡᴀʀᴅs**
-   - 🏆 **ᴘʀɪᴏʀɪᴛʏ sᴜᴘᴘᴏʀᴛ**
-
-2. 📝 **ʀᴇɢɪsᴛᴇʀ** (60 sᴇᴄᴏɴᴅs)
-
-3. 🔑 **ᴄᴏᴘʏ ᴀᴘɪ ᴋᴇʏ** ғʀᴏᴍ ᴅᴀsʜʙᴏᴀʀᴅ
-
-4. ⚙️ **ᴀᴅᴅ** `API_KEY=your_key`
-
-5. ✅ **ᴅᴇᴘʟᴏʏ & ᴇɴᴊᴏʏ!**
-
-</td>
-<td align="center" width="50%">
-
-### 🔄 **ᴇxɪsᴛɪɴɢ ᴜsᴇʀs** (ғᴏʀᴋs)
-
-1. 📂 **ᴜᴘᴅᴀᴛᴇ ғɪʟᴇ:**
-   - `ShrutiMusic/platforms/Youtube.py`
-   - ʀᴇᴘʟᴀᴄᴇ ᴡɪᴛʜ ʟᴀᴛᴇsᴛ ᴄᴏᴅᴇ
-
-2. 🌐 **[ɢᴇᴛ ᴀᴘɪ ᴋᴇʏ](https://panel.thequickearn.xyz/signup?ref=NGBM6HYNQKU)**
-   - 🎁 **sᴘᴇᴄɪᴀʟ ᴏғғᴇʀs**
-
-3. ⚙️ **ᴀᴅᴅ ᴠᴀʀɪᴀʙʟᴇ:**
-   - `API_KEY=your_key`
-
-4. 🔄 **ʀᴇᴅᴇᴘʟᴏʏ:**
-   - `git pull origin main`
-
-5. ✅ **ᴅᴏɴᴇ!**
-
-</td>
-</tr>
-</table>
-
-<div align="center">
-
-### 💫 **ᴡʜʏ ᴜᴘɢʀᴀᴅᴇ ᴛᴏ ᴀᴘɪ?** 💫
-
-| ✨ **ɴᴏ ᴄᴏᴏᴋɪᴇ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ** | ⚡ **10x ғᴀsᴛᴇʀ** | 🔒 **ᴍᴏʀᴇ sᴛᴀʙʟᴇ** | 🎯 **ʙᴇᴛᴛᴇʀ ǫᴜᴀʟɪᴛʏ** |
-|:---:|:---:|:---:|:---:|
-
-</div>
-
----
-
-<div align="center">
   
 # 🎵 **sʜʀᴜᴛɪ ᴍᴜsɪᴄ ʙᴏᴛ** 🎵
   
@@ -325,10 +265,7 @@ nano .env
 - `LOG_GROUP_ID` - ʟᴏɢ ɢʀᴏᴜᴘ/ᴄʜᴀɴɴᴇʟ ɪᴅ (sᴛᴀʀᴛɪɴɢ ᴡɪᴛʜ -100)
 - `SUPPORT_GROUP` - ғᴜʟʟ ʟɪɴᴋ ᴏғ ʏᴏᴜʀ sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ
 - `SUPPORT_CHANNEL` - ғᴜʟʟ ʟɪɴᴋ ᴏғ ʏᴏᴜʀ sᴜᴘᴘᴏʀᴛ ᴄʜᴀɴɴᴇʟ
-- `API_KEY` 🎁 **[ʀᴇǫᴜɪʀᴇᴅ]** - [**ᴄʟɪᴄᴋ ʜᴇʀᴇ ᴛᴏ ɢᴇᴛ**](https://panel.thequickearn.xyz/signup?ref=NGBM6HYNQKU) (**ᴇxᴄʟᴜsɪᴠᴇ ʙᴏɴᴜsᴇs ᴀᴠᴀɪʟᴀʙʟᴇ!**)
 - `START_IMG_URL` - ɪᴍᴀɢᴇ ᴜʀʟ ғᴏʀ /sᴛᴀʀᴛ ᴍᴇssᴀɢᴇ ᴛʜᴜᴍʙɴᴀɪʟ
-
-> **📝 ɴᴏᴛᴇ:** `COOKIE_URL` ɪs ɴᴏ ʟᴏɴɢᴇʀ ɴᴇᴇᴅᴇᴅ ᴡɪᴛʜ ᴛʜᴇ ɴᴇᴡ ᴀᴘɪ sʏsᴛᴇᴍ!
 
 ---
 
@@ -375,7 +312,6 @@ screen -r {screen_id}
    - `MUSIC_BOT_NAME`
    - `STRING_SESSION`
    - `SUDO_USERS` (ʏᴏᴜʀ ᴜsᴇʀ ɪᴅ)
-   - `API_KEY` 🎁 - [**ɢᴇᴛ ғʀᴏᴍ ʜᴇʀᴇ**](https://panel.thequickearn.xyz/signup?ref=NGBM6HYNQKU) (**ʙᴏɴᴜs ᴏғғᴇʀs ɪɴᴄʟᴜᴅᴇᴅ!**)
 
 3. **ᴄʟɪᴄᴋ "ᴅᴇᴘʟᴏʏ ᴀᴘᴘ"**
 
@@ -411,8 +347,7 @@ screen -r {screen_id}
 | 🔇 **ɴᴏ sᴏᴜɴᴅ ɪɴ ᴠᴄ** | ᴇɴsᴜʀᴇ ғғᴍᴘᴇɢ ɪs ᴘʀᴏᴘᴇʀʟʏ ɪɴsᴛᴀʟʟᴇᴅ |
 | 🚫 **ᴄᴀɴ'ᴛ ᴊᴏɪɴ ᴠᴏɪᴄᴇ ᴄʜᴀᴛ** | ᴍᴀᴋᴇ sᴜʀᴇ ᴛʜᴇ ʙᴏᴛ ɪs ᴀɴ ᴀᴅᴍɪɴ ᴡɪᴛʜ ᴠᴄ ᴘᴇʀᴍɪssɪᴏɴs |
 | ⚠️ **ᴀᴘɪ ɪssᴜᴇs** | ᴅᴏᴜʙʟᴇ ᴄʜᴇᴄᴋ ʏᴏᴜʀ `API_ID` ᴀɴᴅ `API_HASH` |
-| 🔑 **ɪɴᴠᴀʟɪᴅ ᴀᴘɪ_ᴋᴇʏ** | ᴠᴇʀɪғʏ ʏᴏᴜʀ ᴀᴘɪ ᴋᴇʏ ғʀᴏᴍ [ᴘᴀɴᴇʟ](https://panel.thequickearn.xyz/signup?ref=NGBM6HYNQKU) |
-| ⏱️ **sʟᴏᴡ ʀᴇsᴘᴏɴsᴇ** | ᴜᴘɢʀᴀᴅᴇ ᴛᴏ ᴀᴘɪ sʏsᴛᴇᴍ ғᴏʀ 10x sᴘᴇᴇᴅ |
+| ⏱️ **sʟᴏᴡ ʀᴇsᴘᴏɴsᴇ** | ᴄʜᴇᴄᴋ ʏᴏᴜʀ ɪɴᴛᴇʀɴᴇᴛ ᴄᴏɴɴᴇᴄᴛɪᴏɴ ᴀɴᴅ sᴇʀᴠᴇʀ ʀᴇsᴏᴜʀᴄᴇs |
 
 </div>
 
@@ -479,15 +414,7 @@ screen -r {screen_id}
 
 <table align="center">
 <tr>
-<td align="center" width="33%">
-
-#### 🎁 **ɢᴇᴛ ᴀᴘɪ ᴋᴇʏ**
-[![API Panel](https://img.shields.io/badge/API%20Panel-FFD700?style=for-the-badge&logo=key&logoColor=black&labelColor=8A2BE2)](https://panel.thequickearn.xyz/signup?ref=NGBM6HYNQKU)
-
-**ᴇxᴄʟᴜsɪᴠᴇ ʙᴏɴᴜsᴇs**
-
-</td>
-<td align="center" width="33%">
+<td align="center" width="50%">
 
 #### 📚 **ᴅᴏᴄᴜᴍᴇɴᴛᴀᴛɪᴏɴ**
 [![Docs](https://img.shields.io/badge/Read%20Docs-00D9FF?style=for-the-badge&logo=readthedocs&logoColor=white&labelColor=000080)](https://github.com/NoxxOP/ShrutiMusic)
@@ -495,7 +422,7 @@ screen -r {screen_id}
 **ᴄᴏᴍᴘʟᴇᴛᴇ ɢᴜɪᴅᴇ**
 
 </td>
-<td align="center" width="33%">
+<td align="center" width="50%">
 
 #### 🔗 **sᴇssɪᴏɴ ʙᴏᴛ**
 [![Session](https://img.shields.io/badge/Generate%20Session-00FF80?style=for-the-badge&logo=telegram&logoColor=black&labelColor=800080)](https://t.me/Sessionbbbot)
@@ -515,7 +442,7 @@ screen -r {screen_id}
 <h1 align="center">🎵 ᴇɴᴊᴏʏ sᴛʀᴇᴀᴍɪɴɢ ᴍᴜsɪᴄ ᴡɪᴛʜ sʜʀᴜᴛɪ ʙᴏᴛ! 🎵</h1>
 
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&duration=3000&pause=1000&color=FF1493&center=true&vCenter=true&width=600&lines=Fast+%F0%9F%9A%80+Reliable+%F0%9F%94%92+High+Quality+%F0%9F%8E%B5;10x+Faster+with+API+%E2%9A%A1;Get+Your+API+Key+Today+%F0%9F%8E%81;Join+Our+Community+%F0%9F%92%AC" alt="Typing SVG">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&duration=3000&pause=1000&color=FF1493&center=true&vCenter=true&width=600&lines=Fast+%F0%9F%9A%80+Reliable+%F0%9F%94%92+High+Quality+%F0%9F%8E%B5;10x+Faster+with+API+%E2%9A%A1;Join+Our+Community+%F0%9F%92%AC" alt="Typing SVG">
 </p>
 
 </div>
