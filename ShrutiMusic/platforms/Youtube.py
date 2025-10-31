@@ -22,8 +22,7 @@ import config
 import traceback
 from ShrutiMusic import LOGGER
 
-API_URL = "https://teaminflex.xyz"
-API_KEY = "INFLEX20037428D"
+YOUR_API_URL = None
 
 def cookie_txt_file():
     cookie_dir = "ShrutiMusic/cookies"
@@ -35,119 +34,169 @@ def cookie_txt_file():
     cookie_file = os.path.join(cookie_dir, random.choice(cookies_files))
     return cookie_file
 
+async def load_api_url():
+    global YOUR_API_URL
+    logger = LOGGER("ShrutiMusic/platforms/Youtube.py")
+    
+    try:
+        async with aiohttp.ClientSession() as session:
+            async with session.get("https://pastebin.com/raw/rLsBhAQa") as response:
+                if response.status == 200:
+                    content = await response.text()
+                    YOUR_API_URL = content.strip()
+                    logger.info(f"API URL loaded successfully")
+                else:
+                    logger.error(f"Failed to fetch API URL. HTTP Status: {response.status}")
+    except Exception as e:
+        logger.error(f"Error loading API URL: {e}")
+
+try:
+    loop = asyncio.get_event_loop()
+    if loop.is_running():
+        asyncio.create_task(load_api_url())
+    else:
+        loop.run_until_complete(load_api_url())
+except RuntimeError:
+    pass
+
 async def download_song(link: str) -> str:
+    global YOUR_API_URL
+    
+    if not YOUR_API_URL:
+        await load_api_url()
+        if not YOUR_API_URL:
+            logger = LOGGER("ShrutiMusic/platforms/Youtube.py")
+            logger.error("API URL not available")
+            return None
+    
     video_id = link.split('v=')[-1].split('&')[0] if 'v=' in link else link
     logger = LOGGER("ShrutiMusic/platforms/Youtube.py")
-    logger.info(f"🎵 [AUDIO] Starting download process for ID: {video_id}")
+    logger.info(f"🎵 [AUDIO] Starting download for: {video_id}")
 
     if not video_id or len(video_id) < 3:
-        return
+        return None
 
     DOWNLOAD_DIR = "downloads"
     os.makedirs(DOWNLOAD_DIR, exist_ok=True)
     file_path = os.path.join(DOWNLOAD_DIR, f"{video_id}.webm")
 
     if os.path.exists(file_path):
-        logger.info(f"🎵 [LOCAL] Found existing file for ID: {video_id}")
+        logger.info(f"🎵 [LOCAL] File exists: {video_id}")
         return file_path
 
     try:
         async with aiohttp.ClientSession() as session:
-            payload = {"url": video_id, "type": "audio"}
-            headers = {
-                "Content-Type": "application/json",
-                "X-API-KEY": API_KEY
-            }
-
-            async with session.post(f"{API_URL}/download", json=payload, headers=headers) as response:
-                data = await response.json(content_type=None)
+            params = {"url": video_id, "type": "audio"}
+            
+            async with session.get(
+                f"{YOUR_API_URL}/download",
+                params=params,
+                timeout=aiohttp.ClientTimeout(total=60)
+            ) as response:
+                data = await response.json()
 
                 if response.status != 200:
-                    logger.error(f"[AUDIO] API returned HTTP {response.status} → {data}")
-                    return
+                    logger.error(f"[AUDIO] API error: {response.status}")
+                    return None
 
-                if data.get("status") == "error":
-                    detail = data.get("detail", "Unknown error")
-                    logger.error(f"[AUDIO] API Error: {detail}")
-                    return
+                if data.get("status") != "success" or not data.get("stream_url"):
+                    logger.error(f"[AUDIO] Invalid response: {data}")
+                    return None
 
-                if data.get("status") != "success" or not data.get("download_url"):
-                    logger.error(f"[AUDIO] Unexpected API response: {data}")
-                    return
-
-                download_link = f"{API_URL}{data['download_url']}"
-
-            async with session.get(download_link) as file_response:
+                stream_url = data["stream_url"]
+                logger.info(f"[AUDIO] Stream URL obtained: {video_id}")
+                
+            async with session.get(
+                stream_url,
+                timeout=aiohttp.ClientTimeout(total=300)
+            ) as file_response:
                 if file_response.status != 200:
-                    logger.error(f"[AUDIO] Download failed ({file_response.status}) for ID: {video_id}")
-                    return
+                    logger.error(f"[AUDIO] Download failed: {file_response.status}")
+                    return None
+                    
                 with open(file_path, "wb") as f:
-                    async for chunk in file_response.content.iter_chunked(8192):
+                    async for chunk in file_response.content.iter_chunked(16384):
                         f.write(chunk)
+                
+                logger.info(f"🎉 [AUDIO] Downloaded: {video_id}")
+                return file_path
 
-        logger.info(f"🎵 [API] Download completed successfully for ID: {video_id}")
-        return file_path
-
+    except asyncio.TimeoutError:
+        logger.error(f"[AUDIO] Timeout: {video_id}")
+        return None
     except Exception as e:
-        logger.error(f"[AUDIO] Exception for ID: {video_id} - {e}")
-        return
+        logger.error(f"[AUDIO] Exception: {video_id} - {e}")
+        return None
+
 
 async def download_video(link: str) -> str:
+    global YOUR_API_URL
+    
+    if not YOUR_API_URL:
+        await load_api_url()
+        if not YOUR_API_URL:
+            logger = LOGGER("ShrutiMusic/platforms/Youtube.py")
+            logger.error("API URL not available")
+            return None
+    
     video_id = link.split('v=')[-1].split('&')[0] if 'v=' in link else link
     logger = LOGGER("ShrutiMusic/platforms/Youtube.py")
-    logger.info(f"🎥 [VIDEO] Starting download process for ID: {video_id}")
+    logger.info(f"🎥 [VIDEO] Starting download for: {video_id}")
 
     if not video_id or len(video_id) < 3:
-        return
+        return None
 
     DOWNLOAD_DIR = "downloads"
     os.makedirs(DOWNLOAD_DIR, exist_ok=True)
     file_path = os.path.join(DOWNLOAD_DIR, f"{video_id}.mkv")
 
     if os.path.exists(file_path):
-        logger.info(f"🎥 [LOCAL] Found existing file for ID: {video_id}")
+        logger.info(f"🎥 [LOCAL] File exists: {video_id}")
         return file_path
 
     try:
         async with aiohttp.ClientSession() as session:
-            payload = {"url": video_id, "type": "video"}
-            headers = {
-                "Content-Type": "application/json",
-                "X-API-KEY": API_KEY
-            }
-
-            async with session.post(f"{API_URL}/download", json=payload, headers=headers) as response:
-                data = await response.json(content_type=None)
+            params = {"url": video_id, "type": "video"}
+            
+            async with session.get(
+                f"{YOUR_API_URL}/download",
+                params=params,
+                timeout=aiohttp.ClientTimeout(total=60)
+            ) as response:
+                data = await response.json()
 
                 if response.status != 200:
-                    logger.error(f"[VIDEO] API returned HTTP {response.status} → {data}")
-                    return
+                    logger.error(f"[VIDEO] API error: {response.status}")
+                    return None
 
-                if data.get("status") == "error":
-                    detail = data.get("detail", "Unknown error")
-                    logger.error(f"[VIDEO] API Error: {detail}")
-                    return
+                if data.get("status") != "success" or not data.get("stream_url"):
+                    logger.error(f"[VIDEO] Invalid response: {data}")
+                    return None
 
-                if data.get("status") != "success" or not data.get("download_url"):
-                    logger.error(f"[VIDEO] Unexpected API response: {data}")
-                    return
-
-                download_link = f"{API_URL}{data['download_url']}"
-
-            async with session.get(download_link) as file_response:
+                stream_url = data["stream_url"]
+                logger.info(f"[VIDEO] Stream URL obtained: {video_id}")
+                
+            async with session.get(
+                stream_url,
+                timeout=aiohttp.ClientTimeout(total=600)
+            ) as file_response:
                 if file_response.status != 200:
-                    logger.error(f"[VIDEO] Download failed ({file_response.status}) for ID: {video_id}")
-                    return
+                    logger.error(f"[VIDEO] Download failed: {file_response.status}")
+                    return None
+                    
                 with open(file_path, "wb") as f:
-                    async for chunk in file_response.content.iter_chunked(8192):
+                    async for chunk in file_response.content.iter_chunked(16384):
                         f.write(chunk)
+                
+                logger.info(f"🎉 [VIDEO] Downloaded: {video_id}")
+                return file_path
 
-        logger.info(f"🎥 [API] Download completed successfully for ID: {video_id}")
-        return file_path
-
+    except asyncio.TimeoutError:
+        logger.error(f"[VIDEO] Timeout: {video_id}")
+        return None
     except Exception as e:
-        logger.error(f"[VIDEO] Exception for ID: {video_id} - {e}")
-        return
+        logger.error(f"[VIDEO] Exception: {video_id} - {e}")
+        return None
 
 async def check_file_size(link):
     async def get_format_info(link):
@@ -284,10 +333,9 @@ class YouTubeAPI:
             if downloaded_file:
                 return 1, downloaded_file
             else:
-                return 0, "Video API did not return a valid file."
+                return 0, "Video download failed"
         except Exception as e:
-            print(f"Video API failed: {e}")
-            return 0, f"Video API failed: {e}"
+            return 0, f"Video download error: {e}"
 
     async def playlist(self, link, limit, user_id, videoid: Union[bool, str] = None):
         if videoid:
@@ -404,5 +452,5 @@ class YouTubeAPI:
                 else:
                     return None, False
         except Exception as e:
-            print(f"API download failed: {e}")
+            print(f"Download failed: {e}")
             return None, False
