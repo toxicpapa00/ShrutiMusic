@@ -96,7 +96,10 @@ async def set_assistant_new(chat_id, number):
 async def set_assistant(chat_id):
     from ShrutiMusic.core.userbot import assistants
 
-    ran_assistant = random.choice(assistants)
+    if not assistants or len(assistants) == 0:
+    raise RuntimeError("No assistants available. Please add assistant sessions!")
+
+ran_assistant = random.choice(assistants)
     assistantdict[chat_id] = ran_assistant
     await assdb.update_one(
         {"chat_id": chat_id},
@@ -137,7 +140,10 @@ async def get_assistant(chat_id: int) -> str:
 async def set_calls_assistant(chat_id):
     from ShrutiMusic.core.userbot import assistants
 
-    ran_assistant = random.choice(assistants)
+    if not assistants or len(assistants) == 0:
+    raise RuntimeError("No assistants available. Please add assistant sessions!")
+
+ran_assistant = random.choice(assistants)
     assistantdict[chat_id] = ran_assistant
     await assdb.update_one(
         {"chat_id": chat_id},
